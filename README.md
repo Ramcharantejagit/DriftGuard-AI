@@ -6,6 +6,16 @@ DriftGuard AI watches a software project continuously and streams problems to a 
 
 It is designed as a portfolio-ready Generative AI / Agentic AI project that can run locally without paid APIs, while optionally using **Ollama** for AI explanations.
 
+<img width="1920" height="891" alt="Screenshot (78)" src="https://github.com/user-attachments/assets/2e598056-cd02-4303-bd4e-31e3462d4357" />
+
+
+
+
+
+
+
+
+
 ## What makes it different
 
 Traditional linters usually inspect one language or one file at a time. DriftGuard AI looks across the repository and tries to detect **cross-file drift** such as:
