@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DriftGuard AI</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <header>
+    <div class="brand">
+      <div class="logo">DG</div>
+      <div>
+        <h1>DriftGuard <span>AI</span></h1>
+        <p>Real-time codebase consistency agent</p>
+      </div>
+    </div>
+    <div class="connection">
+      <span id="socketDot" class="dot"></span>
+      <span id="socketText">Connecting...</span>
+      <button id="scanBtn">Run scan</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-card">
+      <div>
+        <div class="eyebrow">LIVE REPOSITORY MONITOR</div>
+        <h2>Your code changes. <span>DriftGuard notices.</span></h2>
+        <p class="hero-copy">
+          Continuously checks API contracts, secrets, environment configuration,
+          debug code and documentation drift while you work.
+        </p>
+        <div class="watching">Watching: <code id="watchPath">...</code></div>
+      </div>
+      <div class="score-wrap">
+        <div class="score-ring">
+          <span id="riskScore">0</span>
+          <small>RISK</small>
+        </div>
+        <div id="riskLabel" class="risk-label">Analyzing</div>
+      </div>
+    </section>
+
+    <section id="stats" class="stats"></section>
+
+    <section class="layout">
+      <div class="main-panel">
+        <div class="panel-head">
+          <div>
+            <h3>Live findings</h3>
+            <p id="lastScan">Waiting for scan...</p>
+          </div>
+          <div class="filters">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="critical">Critical</button>
+            <button class="filter" data-filter="high">High</button>
+            <button class="filter" data-filter="medium">Medium</button>
+            <button class="filter" data-filter="low">Low</button>
+          </div>
+        </div>
+        <div id="findings" class="findings"></div>
+      </div>
+
+      <aside>
+        <div class="side-card">
+          <div class="panel-head compact">
+            <div>
+              <h3>Repository timeline</h3>
+              <p>Changes and scans</p>
+            </div>
+          </div>
+          <div id="events" class="events"></div>
+        </div>
+
+        <div class="side-card">
+          <h3>Detection agents</h3>
+          <div class="agent"><span>↔</span><div><b>API Drift</b><small>Frontend vs backend routes</small></div></div>
+          <div class="agent"><span>🔐</span><div><b>Secret Guard</b><small>Credential-like values</small></div></div>
+          <div class="agent"><span>⚙</span><div><b>Env Drift</b><small>Undocumented variables</small></div></div>
+          <div class="agent"><span>⌁</span><div><b>Debt Scanner</b><small>TODO / FIXME hotspots</small></div></div>
+          <div class="agent"><span>◫</span><div><b>Docs Drift</b><small>README inconsistencies</small></div></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeModal" class="close">×</button>
+      <div class="eyebrow">AI EXPLANATION</div>
+      <h3 id="modalTitle">Finding</h3>
+      <p id="modalMeta" class="modal-meta"></p>
+      <div id="modalText" class="explanation">Loading...</div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
